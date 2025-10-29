@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperatura da Semana</title>
+  <!-- Importa o Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f7f7f7;
+      margin-top: 50px;
+    }
+    canvas {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Temperatura da Semana 🌞</h2>
+  <canvas id="graficoTemperatura"></canvas>
+
+  <script>
+    // Dados da semana
+    const dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+    const temperaturas = [28, 30, 27, 29, 31, 33, 32]; // Exemplo em °C
+
+    // Cria o gráfico de barras
+    new Chart(document.getElementById("graficoTemperatura"), {
+      type: "bar",
+      data: {
+        labels: dias,
+        datasets: [{
+          label: "Temperatura (°C)",
+          data: temperaturas,
+          backgroundColor: "rgba(54, 162, 235, 0.6)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
